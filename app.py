@@ -14,16 +14,11 @@ def submit():
     message = data['chat_message']
     client = Client()
     response = client.chat.completions.create(
-    model="gemini",
+    model="gpt-3.5-turbo",
     messages=[{"role": "user", "content": message}]
     )
     return (response.choices[0].message.content)
 
-
-
-@app.route('/post', methods=['POST'])
-def post():
-    return "recived: {}".format(request.form)
     
 
 if __name__ == '__main__':
